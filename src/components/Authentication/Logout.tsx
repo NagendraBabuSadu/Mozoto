@@ -5,7 +5,7 @@ import logoutImage from "../../assets/logoutImage.jpg";
 
 interface ILogoutProps {}
 
-const Logout: React.FunctionComponent<ILogoutProps> = (props) => {
+const Logout: React.FunctionComponent<ILogoutProps> = () => {
   const navigate = useNavigate();
   React.useEffect(() => {
     const timeout = setTimeout(() => {

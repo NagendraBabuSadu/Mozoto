@@ -28,7 +28,6 @@ export const UserAuthProvider: React.FunctionComponent<
   IUserAuthProviderProps
 > = ({ children }) => {
   const [user, setUser] = React.useState<User | null>(null);
-  const isLoginSuccess = !!user; 
 
   const login = (email: string, password: string) => {
     const userData = { email, password };
@@ -76,11 +75,6 @@ export const useUserAuth = () => {
   return context;
 };
 
-
-function updateProfile(arg0: any, arg1: { displayName: string; photoURL: string | undefined; }) {
+function updateProfile(p0?: any, p1?: { displayName: string; photoURL: string | undefined; }) {
   throw new Error("Function not implemented.");
 }
-// function updateProfile(arg0: any, arg1: { displayName: string; photoURL: string | undefined; }) {
-//   throw new Error("Function not implemented.");
-// }
-

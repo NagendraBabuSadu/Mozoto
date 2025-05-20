@@ -22,6 +22,7 @@ const userSlice = createSlice({
   reducers: {
     addToUser: (state, action: PayloadAction<ProfileInfo>) => {
       localStorage.setItem("userProfile", JSON.stringify(action.payload));
+      console.log(state)
       return action.payload;
     },
 

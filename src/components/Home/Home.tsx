@@ -11,7 +11,7 @@ import { addToCart } from "../../features/Cart/cartSlice";
 interface IHomeProps {}
 
 const Home: React.FunctionComponent<IHomeProps> = () => {
-  const [cardsData, setCardsData] = React.useState(CardsData);
+  const [cardsData] = React.useState(CardsData);
   const [searchTerm, setSearchTerm] = React.useState("");
   const filteredItems = useSelector(
     (state: RootState) => state.filterItemsReducer.filteredItems
@@ -42,11 +42,7 @@ const Home: React.FunctionComponent<IHomeProps> = () => {
     <div>
       <section className="item_section mt-4 container bg-slate-700">
         <h2>Food Menu</h2>
-        <form
-          className={`search ${
-            scrolled ? "scrolled" : ""
-          }  flex`}
-        >
+        <form className={`search ${scrolled ? "scrolled" : ""}  flex`}>
           <input
             type="text"
             placeholder="Search the Item"
@@ -58,9 +54,8 @@ const Home: React.FunctionComponent<IHomeProps> = () => {
               borderRadius: "20px",
               paddingLeft: "15px",
               caretColor: "red",
-              boxShadow: "0px 0px 5px"
+              boxShadow: "0px 0px 5px",
             }}
-          
           />
         </form>
 
@@ -69,7 +64,7 @@ const Home: React.FunctionComponent<IHomeProps> = () => {
             return (
               <Card
                 key={card.id}
-                style={{ width: "18rem"}}
+                style={{ width: "18rem" }}
                 className="hove mb-4"
               >
                 <Card.Img variant="top" className="cd" src={card.imgdata} />

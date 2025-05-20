@@ -4,4 +4,11 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
+  "paths": {
+    "@components/*": ["src/components/*"],
+    "@features/*": ["src/features/*"],
+    "@redux/*": ["src/redux/*"],
+    "@context/*": ["src/context/*"],
+    "@assets/*": ["src/assets/*"]
+  }
 }

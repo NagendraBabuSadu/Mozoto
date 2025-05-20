@@ -14,7 +14,7 @@ const initialValue: UserLogin = {
   password: "",
 };
 
-const Login: React.FunctionComponent<ILoginProps> = (props) => {
+const Login: React.FunctionComponent<ILoginProps> = () => {
   const [userLoginInfo, setUserLoginInfo] =
     React.useState<UserLogin>(initialValue);
 
