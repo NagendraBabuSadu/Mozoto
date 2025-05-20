@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import Footer from "./Footer/Footer";
+import Footer from "../common/Footer/Footer";
+
 
 const PageWrapper = async ({ children }: { children: React.ReactNode }) => {
   const slideVariants = {

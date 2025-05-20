@@ -14,12 +14,20 @@
     "noEmit": true,
 
     /* Linting */
-    "strict": true,
+    "strict": true, 
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["vite.config.ts"]
+    "noUncheckedSideEffectImports": true,
+
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@features/*": ["src/features/*"],
+      "@redux/*": ["src/redux/*"],
+      "@context/*": ["src/context/*"],
+      "@assets/*": ["src/assets/*"]
+      },
+    "include": ["vite.config.ts"]
+  }
 }

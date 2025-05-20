@@ -15,11 +15,19 @@
 }
 
 #ex4 .fa-stack {
-  width: 1.3em;
+  width: 1.1em;
 }
 
 #ex4,
 .p1.fa-stack {
   background: transparent !important;
   box-shadow: none !important;
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

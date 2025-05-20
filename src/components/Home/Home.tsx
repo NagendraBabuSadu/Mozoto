@@ -3,35 +3,26 @@ import "./homeStyle.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import CardsData from "../../data/CardData";
-import { addToCart } from "../../redux/features/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { searchItems } from "../../redux/features/filterItemsSlice";
+import type { RootState } from "../../redux/app/store";
+import type { ICartItem } from "../../types";
+import { addToCart } from "../../features/Cart/cartSlice";
 interface IHomeProps {}
 
-const Home: React.FunctionComponent<IHomeProps> = (props) => {
+const Home: React.FunctionComponent<IHomeProps> = () => {
   const [cardsData, setCardsData] = React.useState(CardsData);
   const [searchTerm, setSearchTerm] = React.useState("");
   const filteredItems = useSelector(
-    (state) => state.filterItemsReducer.filteredItems
+    (state: RootState) => state.filterItemsReducer.filteredItems
   );
   const [scrolled, setScrolled] = React.useState(false);
   const dispatch = useDispatch();
-  const send = (e: {
-    id: number;
-    dish: string;
-    imgdata: string;
-    address: string;
-    delimg: string;
-    somedata: string;
-    price: number;
-    rating: string;
-    arrimg: string;
-    qnty: number;
-  }) => {
+  const send = (e: ICartItem) => {
     dispatch(addToCart(e));
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchTerm(value);
     dispatch(searchItems(value));
@@ -39,7 +30,7 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -51,27 +42,34 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
     <div>
       <section className="item_section mt-4 container bg-slate-700">
         <h2>Food Menu</h2>
-        <div
-          className={`custom-search ${
+        <form
+          className={`search ${
             scrolled ? "scrolled" : ""
-          }  flex mt-2 mb-2 custom-search`}
+          }  flex`}
         >
           <input
             type="text"
-            placeholder="Search"
-            className="w-100 p-2 rounded"
+            placeholder="Search the Item"
+            className="py-2 border-bottom border border-dark"
             value={searchTerm}
             onChange={handleSearch}
-            
+            style={{
+              width: "100%",
+              borderRadius: "20px",
+              paddingLeft: "15px",
+              caretColor: "red",
+              boxShadow: "0px 0px 5px"
+            }}
+          
           />
-        </div>
+        </form>
 
         <div className="row mt-2 d-flex justify-content-around align-items-center">
           {(searchTerm ? filteredItems : cardsData).map((card) => {
             return (
               <Card
                 key={card.id}
-                style={{ width: "22rem", border: "none" }}
+                style={{ width: "18rem"}}
                 className="hove mb-4"
               >
                 <Card.Img variant="top" className="cd" src={card.imgdata} />

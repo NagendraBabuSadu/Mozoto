@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../context/useAuthContext";
 import { Button, Card, Container, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { addToUser } from "../../redux/features/userSlice";
+import { addToUser } from "../../features/User/userSlice";
 import type { RootState } from "../../redux/app/store";
-
+import loginIcon from "../../assets/loginIcon.jpg";
 interface ILoginProps {}
 
 const initialValue: UserLogin = {
@@ -57,6 +57,7 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
             boxShadow: "0 0 10px",
           }}
         >
+          <Card.Img variant="top" className="cd" src={loginIcon} />
           <Card.Body>
             <h3 className="text-center mb-2 ">Login to Mozoto</h3>
             <Form onSubmit={handleSubmit}>

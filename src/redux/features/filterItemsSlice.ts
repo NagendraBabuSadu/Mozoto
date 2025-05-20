@@ -1,7 +1,6 @@
-import { combineSlices, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import CardsData from "../../data/CardData";
 
-interface Item {}
 
 const initialState = {
   items: CardsData,

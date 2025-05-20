@@ -4,12 +4,16 @@ import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Loading from "./components/Loading/Loading";
 import { AnimatePresence } from "framer-motion";
-import PageWrapper from "./components/PageWrapper";
-import UserProfile from "./components/UserProfile/UserProfile";
+
 import Layout from "./components/Layout/Layout";
+import PageWrapper from "./wrappers/PageWrapper";
+import PrivateRoutes from "./routes/PrivateRoutes/PrivateRoutes";
+
 const Login = lazy(() => import("./components/Authentication/Login"));
 const Logout = lazy(() => import("./components/Authentication/Logout"));
-const CartDetails = lazy(() => import("./components/Cart/CartDetails"));
+const CartDetails = lazy(() => import("./features/Cart/CartDetails"));
+const UserProfile = lazy(() => import("./features/User/UserProfile"));
+
 
 function App() {
   return (
@@ -34,14 +38,16 @@ function App() {
                   </PageWrapper>
                 }
               />
-              <Route
-                path="/cart"
-                element={
-                  <PageWrapper>
-                    <CartDetails />
-                  </PageWrapper>
-                }
-              />
+              <Route element={<PrivateRoutes />}>
+                <Route
+                  path="/cart"
+                  element={
+                    <PageWrapper>
+                      <CartDetails />
+                    </PageWrapper>
+                  }
+                />
+              </Route>
               <Route
                 path="/logout"
                 element={
@@ -50,6 +56,7 @@ function App() {
                   </PageWrapper>
                 }
               />
+
               <Route
                 path="/user-profile"
                 element={

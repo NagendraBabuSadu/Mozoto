@@ -9,7 +9,7 @@ type AuthData = {
   user: User | null;
   login: (email: string, password: string) => void;
   logout: () => void;
-  userProfileUpdateInfo: (userProfile: ProfileInfo) => void;
+  updateProfile: (userProfile: ProfileInfo) => void;
 };
 
 export const userProfileUpdatedInfo = (userProfile: ProfileInfo) => {
@@ -28,7 +28,7 @@ export const UserAuthProvider: React.FunctionComponent<
   IUserAuthProviderProps
 > = ({ children }) => {
   const [user, setUser] = React.useState<User | null>(null);
-  const isLoginSuccess = !!user; // true if logged in
+  const isLoginSuccess = !!user; 
 
   const login = (email: string, password: string) => {
     const userData = { email, password };
@@ -41,7 +41,7 @@ export const UserAuthProvider: React.FunctionComponent<
     setUser(null);
   };
 
-  const userProfileUpdateInfo = (userProfile: ProfileInfo) => {
+  const updateProfile = (userProfile: ProfileInfo) => {
     console.log("Profile Info:", userProfile);
   };
 
@@ -56,7 +56,7 @@ export const UserAuthProvider: React.FunctionComponent<
     user,
     login,
     logout,
-    userProfileUpdateInfo,
+    updateProfile,
   };
 
   return (
@@ -75,9 +75,12 @@ export const useUserAuth = () => {
   }
   return context;
 };
-function updateProfile(
-  arg0: any,
-  arg1: { displayName: string; photoURL: any }
-) {
+
+
+function updateProfile(arg0: any, arg1: { displayName: string; photoURL: string | undefined; }) {
   throw new Error("Function not implemented.");
 }
+// function updateProfile(arg0: any, arg1: { displayName: string; photoURL: string | undefined; }) {
+//   throw new Error("Function not implemented.");
+// }
+

@@ -16,7 +16,10 @@ const ButtonTheme: React.FC<
   return (
     <button
       onClick={toggleTheme}
-      style={{ padding: 0, border: "none", background: "none" }}
+      className="mt-0"
+      style={{ padding: 0, border: "none", background: "none", width: "40px" }}
+      title="Change Theme"
+
     >
       <img
         src={theme === "light" ? darkIcon : lightIcon}
@@ -28,7 +31,7 @@ const ButtonTheme: React.FC<
           marginRight: children ? 8 : 0,
           objectFit: "cover",
           border: "none",
-          background: "none",
+          
         }}
       />
       {children}

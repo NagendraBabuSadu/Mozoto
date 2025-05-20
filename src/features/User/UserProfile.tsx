@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../../redux/app/store";
-import { updateUserProfile } from "../../redux/features/userSlice";
+import { updateUserProfile } from "../../features/User/userSlice";
 
 const UserProfile = () => {
   const user = useSelector((state: RootState) => state.userReducer);

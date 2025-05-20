@@ -22,7 +22,7 @@ const ThemeContext = React.createContext<ThemeContextType | undefined>(
 const ThemeProvider: React.FunctionComponent<IThemeProviderProps> = ({
   children,
 }) => {
-  const [theme, setTheme] = React.useState<Theme>("light");
+  const [theme, setTheme] = React.useState<Theme>("dark");
 
   const icon = {
     lightIcon,
@@ -30,7 +30,7 @@ const ThemeProvider: React.FunctionComponent<IThemeProviderProps> = ({
   };
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
   React.useEffect(() => {

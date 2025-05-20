@@ -6,7 +6,7 @@ import {
   addToCart,
   removeItemFromCart,
   removeTotalCart,
-} from "../../redux/features/cartSlice";
+} from "./cartSlice";
 import Toast from "react-bootstrap/Toast";
 import { ToastContainer } from "react-bootstrap";
 import type { ICartItem } from "../../types";

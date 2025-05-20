@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Card, Container, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import logoutImage from "../../assets/logoutImage.jpg";
 
 interface ILogoutProps {}
 
@@ -17,6 +18,7 @@ const Logout: React.FunctionComponent<ILogoutProps> = (props) => {
   return (
     <Container className="d-flex justify-content-center align-items-center min-vh-100 bg-light">
       <Card className="text-center p-5 shadow logout-card justify-content-center align-items-center">
+        <Card.Img variant="top" className="cd" src={logoutImage} />
         <h2 className="text-success">You have been logged out successfully!</h2>
         <p className="text-muted">Redirecting to home in a few seconds...</p>
         <Spinner animation="border" variant="danger" className="mt-3" />

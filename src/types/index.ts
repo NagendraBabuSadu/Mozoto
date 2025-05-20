@@ -3,13 +3,7 @@ export interface UserLogin {
   password?: string;
 }
 
-export interface ICartItem {
-  id: string;
-  dish: string;
-  price: number;
-  qnty?: number;
-  imgdata: string;
-}
+
 
 export interface ProfileInfo extends UserLogin {
   user: any;
@@ -17,3 +11,17 @@ export interface ProfileInfo extends UserLogin {
   photoUrl?: string;
   occupation?: string;
 }
+
+
+export interface ICartItem {
+    id: number;
+    dish: string;
+    imgdata: string;
+    address: string;
+    delimg: string;
+    somedata: string;
+    price: number;
+    rating: string;
+    arrimg: string;
+    qnty: number;
+  }
